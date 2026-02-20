@@ -421,18 +421,18 @@
     <div class="section-title">What industry are you designing for?</div>
     <div class="section-sub">Your industry shapes the language, touchpoints and ambition of your vision.</div>
     <div class="option-grid cols-4">
-      <div class="option-card" onclick="pick(this,'industry','Real Estate & Property')"><div class="option-icon">🏙️</div><div class="option-label">Real Estate</div><div class="option-desc">Property, development, leasing</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Banking & Financial Services')"><div class="option-icon">🏦</div><div class="option-label">Banking & Finance</div><div class="option-desc">Retail banking, wealth, fintech</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Hospitality & Tourism')"><div class="option-icon">🏨</div><div class="option-label">Hospitality</div><div class="option-desc">Hotels, travel, experiences</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Healthcare & Wellness')"><div class="option-icon">🏥</div><div class="option-label">Healthcare</div><div class="option-desc">Hospitals, clinics, wellness</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Luxury Retail & Fashion')"><div class="option-icon">💎</div><div class="option-label">Luxury Retail</div><div class="option-desc">Premium brands, fashion</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Automotive')"><div class="option-icon">🚗</div><div class="option-label">Automotive</div><div class="option-desc">Vehicles, mobility, EV</div></div>
-      <div class="option-card" onclick="pick(this,'industry','E-Commerce & Retail')"><div class="option-icon">🛒</div><div class="option-label">E-Commerce</div><div class="option-desc">Online retail, marketplaces</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Telecom & Technology')"><div class="option-icon">📡</div><div class="option-label">Telecom & Tech</div><div class="option-desc">Connectivity, SaaS, devices</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Education & EdTech')"><div class="option-icon">🎓</div><div class="option-label">Education</div><div class="option-desc">Schools, universities, edtech</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Insurance')"><div class="option-icon">🛡️</div><div class="option-label">Insurance</div><div class="option-desc">Life, health, property</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Food, Beverage & Restaurants')"><div class="option-icon">🍽️</div><div class="option-label">Food & Beverage</div><div class="option-desc">Restaurants, FMCG, delivery</div></div>
-      <div class="option-card" onclick="pick(this,'industry','Government & Public Services')"><div class="option-icon">🏛️</div><div class="option-label">Government</div><div class="option-desc">Public services, civic tech</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Real Estate & Property"><div class="option-icon">🏙️</div><div class="option-label">Real Estate</div><div class="option-desc">Property, development, leasing</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Banking & Financial Services"><div class="option-icon">🏦</div><div class="option-label">Banking & Finance</div><div class="option-desc">Retail banking, wealth, fintech</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Hospitality & Tourism"><div class="option-icon">🏨</div><div class="option-label">Hospitality</div><div class="option-desc">Hotels, travel, experiences</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Healthcare & Wellness"><div class="option-icon">🏥</div><div class="option-label">Healthcare</div><div class="option-desc">Hospitals, clinics, wellness</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Luxury Retail & Fashion"><div class="option-icon">💎</div><div class="option-label">Luxury Retail</div><div class="option-desc">Premium brands, fashion</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Automotive"><div class="option-icon">🚗</div><div class="option-label">Automotive</div><div class="option-desc">Vehicles, mobility, EV</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="E-Commerce & Retail"><div class="option-icon">🛒</div><div class="option-label">E-Commerce</div><div class="option-desc">Online retail, marketplaces</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Telecom & Technology"><div class="option-icon">📡</div><div class="option-label">Telecom & Tech</div><div class="option-desc">Connectivity, SaaS, devices</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Education & EdTech"><div class="option-icon">🎓</div><div class="option-label">Education</div><div class="option-desc">Schools, universities, edtech</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Insurance"><div class="option-icon">🛡️</div><div class="option-label">Insurance</div><div class="option-desc">Life, health, property</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Food, Beverage & Restaurants"><div class="option-icon">🍽️</div><div class="option-label">Food & Beverage</div><div class="option-desc">Restaurants, FMCG, delivery</div></div>
+      <div class="option-card" data-pick-key="industry" data-pick-val="Government & Public Services"><div class="option-icon">🏛️</div><div class="option-label">Government</div><div class="option-desc">Public services, civic tech</div></div>
     </div>
     <div class="form-group" style="margin-top:24px">
       <label class="form-label">Brand or organisation name (optional)</label>
@@ -447,20 +447,20 @@
     <div class="section-title">What type of vision do you want to build?</div>
     <div class="section-sub">Each type creates a different gravitational pull — on employees, culture, and customers.</div>
     <div class="option-grid cols-2" style="margin-bottom:32px">
-      <div class="option-card" onclick="pick(this,'visionType','adjective')"><div class="option-icon">✦</div><div class="option-label">Adjective-Based</div><div class="option-desc">"We want every experience to be inspiring, inviting, dynamic." Clear, measurable, easy for teams to translate into behaviour.</div></div>
-      <div class="option-card" onclick="pick(this,'visionType','feeling')"><div class="option-icon">♡</div><div class="option-label">Feeling-Based</div><div class="option-desc">"We want every customer to feel confident, seen, at ease." Emotionally resonant and customer-perspective-first.</div></div>
-      <div class="option-card" onclick="pick(this,'visionType','promise')"><div class="option-icon">◇</div><div class="option-label">Promise-Based</div><div class="option-desc">"In every interaction, we promise to be honest, responsive, genuinely helpful." Concrete and commitment-forward.</div></div>
-      <div class="option-card" onclick="pick(this,'visionType','principle')"><div class="option-icon">△</div><div class="option-label">Principle-Based</div><div class="option-desc">"We operate by: craft above convenience, empathy before efficiency." Philosophy-led and distinctive.</div></div>
+      <div class="option-card" data-pick-key="visionType" data-pick-val="adjective"><div class="option-icon">✦</div><div class="option-label">Adjective-Based</div><div class="option-desc">"We want every experience to be inspiring, inviting, dynamic." Clear, measurable, easy for teams to translate into behaviour.</div></div>
+      <div class="option-card" data-pick-key="visionType" data-pick-val="feeling"><div class="option-icon">♡</div><div class="option-label">Feeling-Based</div><div class="option-desc">"We want every customer to feel confident, seen, at ease." Emotionally resonant and customer-perspective-first.</div></div>
+      <div class="option-card" data-pick-key="visionType" data-pick-val="promise"><div class="option-icon">◇</div><div class="option-label">Promise-Based</div><div class="option-desc">"In every interaction, we promise to be honest, responsive, genuinely helpful." Concrete and commitment-forward.</div></div>
+      <div class="option-card" data-pick-key="visionType" data-pick-val="principle"><div class="option-icon">△</div><div class="option-label">Principle-Based</div><div class="option-desc">"We operate by: craft above convenience, empathy before efficiency." Philosophy-led and distinctive.</div></div>
     </div>
     <div class="section-title" style="font-size:17px;margin-bottom:6px">What tone should it carry?</div>
     <div class="section-sub">Tone shapes how the vision sounds — and how it will land.</div>
     <div class="tone-row">
-      <div class="tone-card" onclick="pickTone(this,'aspirational')"><span class="tone-emoji">🌅</span><span class="tone-label">Aspirational</span><span class="tone-desc">Dreamy, forward-looking, emotionally elevated.</span></div>
-      <div class="tone-card" onclick="pickTone(this,'bold')"><span class="tone-emoji">⚡</span><span class="tone-label">Bold & Declarative</span><span class="tone-desc">Confident, assertive, no caveats.</span></div>
-      <div class="tone-card" onclick="pickTone(this,'human')"><span class="tone-emoji">🤝</span><span class="tone-label">Warm & Human</span><span class="tone-desc">Approachable, empathetic, grounded.</span></div>
-      <div class="tone-card" onclick="pickTone(this,'precise')"><span class="tone-emoji">🔷</span><span class="tone-label">Precise & Functional</span><span class="tone-desc">Measured, specific, operational.</span></div>
-      <div class="tone-card" onclick="pickTone(this,'poetic')"><span class="tone-emoji">🌿</span><span class="tone-label">Poetic & Evocative</span><span class="tone-desc">Metaphorical, memorable, unexpected.</span></div>
-      <div class="tone-card" onclick="pickTone(this,'premium')"><span class="tone-emoji">♟</span><span class="tone-label">Premium & Refined</span><span class="tone-desc">Restrained, dignified, quietly confident.</span></div>
+      <div class="tone-card" data-tone="aspirational"><span class="tone-emoji">🌅</span><span class="tone-label">Aspirational</span><span class="tone-desc">Dreamy, forward-looking, emotionally elevated.</span></div>
+      <div class="tone-card" data-tone="bold"><span class="tone-emoji">⚡</span><span class="tone-label">Bold & Declarative</span><span class="tone-desc">Confident, assertive, no caveats.</span></div>
+      <div class="tone-card" data-tone="human"><span class="tone-emoji">🤝</span><span class="tone-label">Warm & Human</span><span class="tone-desc">Approachable, empathetic, grounded.</span></div>
+      <div class="tone-card" data-tone="precise"><span class="tone-emoji">🔷</span><span class="tone-label">Precise & Functional</span><span class="tone-desc">Measured, specific, operational.</span></div>
+      <div class="tone-card" data-tone="poetic"><span class="tone-emoji">🌿</span><span class="tone-label">Poetic & Evocative</span><span class="tone-desc">Metaphorical, memorable, unexpected.</span></div>
+      <div class="tone-card" data-tone="premium"><span class="tone-emoji">♟</span><span class="tone-label">Premium & Refined</span><span class="tone-desc">Restrained, dignified, quietly confident.</span></div>
     </div>
     <div class="error-msg" id="e1">Please select both a vision type and a tone.</div>
     <div class="form-nav"><button class="btn btn-ghost" onclick="prev(1)">← Back</button><button class="btn btn-primary" onclick="next(1)">Next — Choose Pillars →</button></div>
@@ -472,12 +472,12 @@
     <div class="section-sub">Pick 3–5 words that become the gravitational centre of your vision. These aren't decoration — they're design decisions.</div>
     <div class="adj-info">Selected: <span id="adjCount">0</span> / 5 &nbsp;·&nbsp; Choose 3–5</div>
     <div class="adj-cat-tabs">
-      <div class="adj-cat-tab active" onclick="filterAdj(this,'all')">All</div>
-      <div class="adj-cat-tab" onclick="filterAdj(this,'emotional')">Emotional</div>
-      <div class="adj-cat-tab" onclick="filterAdj(this,'operational')">Operational</div>
-      <div class="adj-cat-tab" onclick="filterAdj(this,'character')">Character</div>
-      <div class="adj-cat-tab" onclick="filterAdj(this,'innovation')">Innovation</div>
-      <div class="adj-cat-tab" onclick="filterAdj(this,'experience')">Experience</div>
+      <div class="adj-cat-tab active" data-adj-cat="all">All</div>
+      <div class="adj-cat-tab" data-adj-cat="emotional">Emotional</div>
+      <div class="adj-cat-tab" data-adj-cat="operational">Operational</div>
+      <div class="adj-cat-tab" data-adj-cat="character">Character</div>
+      <div class="adj-cat-tab" data-adj-cat="innovation">Innovation</div>
+      <div class="adj-cat-tab" data-adj-cat="experience">Experience</div>
     </div>
     <div class="adj-pool" id="adjPool"></div>
     <div class="error-msg" id="e2">Please select between 3 and 5 pillars.</div>
@@ -631,6 +631,33 @@ function pickTone(el, val) {
   el.classList.add('selected');
   S.tone = val;
 }
+
+// Event delegation - handles all card/tab clicks robustly
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('[data-pick-key]');
+  if (card) {
+    const grid = card.closest('.option-grid') || card.parentElement;
+    grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    S[card.dataset.pickKey] = card.dataset.pickVal;
+    return;
+  }
+  const tone = e.target.closest('[data-tone]');
+  if (tone) {
+    document.querySelectorAll('.tone-card').forEach(c => c.classList.remove('selected'));
+    tone.classList.add('selected');
+    S.tone = tone.dataset.tone;
+    return;
+  }
+  const adjCatEl = e.target.closest('[data-adj-cat]');
+  if (adjCatEl) {
+    adjCat = adjCatEl.dataset.adjCat;
+    document.querySelectorAll('.adj-cat-tab').forEach(t => t.classList.remove('active'));
+    adjCatEl.classList.add('active');
+    buildAdjPool();
+    return;
+  }
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // NAVIGATION
