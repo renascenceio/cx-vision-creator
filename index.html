@@ -978,5 +978,22 @@ buildAdjPool();
   .vision-block,.tp-block,.scenarios-block,.variants-block,.impl-block { break-inside:avoid; }
   .pillars-grid { grid-template-columns:repeat(3,1fr); }
 </style>
+  <script>
+function notifyHeight() {
+  window.parent.postMessage({ type: 'resize', height: document.body.scrollHeight }, '*');
+}
+setInterval(notifyHeight, 500);
+</script>
+```
+
+---
+
+## Done. The flow is:
+```
+Webflow page
+  → iframe → github.io/cx-vision-creator (your HTML, no size limit)
+                → Cloudflare Worker (cx-vision.renascence.workers.dev)
+                    → Anthropic API
+                    → Google Sheets (leads)
 </body>
 </html>
