@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .card {
+    display: inline-block;
+    padding: 20px 40px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .card.selected {
+    border-color: red;
+    background: rgba(255,0,0,0.1);
+  }
+  .card > * { pointer-events: none; }
+</style>
+</head>
+<body>
+<p id="status">Click a card</p>
+<div class="card" data-val="one"><strong>Card One</strong><br><small>subtitle</small></div>
+<div class="card" data-val="two"><strong>Card Two</strong><br><small>subtitle</small></div>
+<div class="card" data-val="three"><strong>Card Three</strong><br><small>subtitle</small></div>
+
+<script>
+document.addEventListener('click', function(e) {
+  var card = e.target.closest('[data-val]');
+  if (card) {
+    document.querySelectorAll('.card').forEach(function(c) { c.classList.remove('selected'); });
+    card.classList.add('selected');
+    document.getElementById('status').textContent = 'Selected: ' + card.dataset.val;
+  }
+});
+</script>
+</body>
+</html>
