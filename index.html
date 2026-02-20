@@ -986,5 +986,16 @@ buildAdjPool();
   .vision-block,.tp-block,.scenarios-block,.variants-block,.impl-block { break-inside:avoid; }
   .pillars-grid { grid-template-columns:repeat(3,1fr); }
 </style>
+
+<script>
+function reportHeight() {
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({ type: 'iframeHeight', height: h }, '*');
+}
+// Report on load, after any DOM change, and on a short interval for dynamic content
+window.addEventListener('load', reportHeight);
+new MutationObserver(reportHeight).observe(document.body, { childList: true, subtree: true });
+setInterval(reportHeight, 300);
+</script>
 </body>
 </html>
