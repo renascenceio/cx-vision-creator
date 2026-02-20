@@ -678,7 +678,7 @@ function closeModal() {
   pendingAction = null;
 }
 
-async function submitEmail() {
+async async function submitEmail() {
   const email = document.getElementById('modalEmail').value.trim();
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     document.getElementById('emailError').classList.add('visible');
@@ -686,19 +686,18 @@ async function submitEmail() {
   }
   capturedEmail = email;
   document.getElementById('emailError').classList.remove('visible');
+  const action = pendingAction;
   closeModal();
 
-  // Send lead to worker
-  try {
-    await fetch(`${WORKER_URL}/lead`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: pendingAction || 'email_gate' })
-    });
-  } catch(e) { /* non-fatal */ }
+  // Fire-and-forget lead capture — never blocks the main action
+  fetch(`${WORKER_URL}/lead`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, source: action || 'email_gate' })
+  }).catch(() => {});
 
-  if (pendingAction === 'download') downloadPDF();
-  if (pendingAction === 'generate-again') callGenerate();
+  if (action === 'download') downloadPDF();
+  if (action === 'generate-again') callGenerate();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -948,7 +947,16 @@ function handleDownload() {
 }
 
 function downloadPDF() {
-  window.print();
+  // Open in new tab for clean print/save — works reliably from iframe context
+  const w = window.open('', '_blank');
+  if (!w) { window.print(); return; }
+  const doc = document.documentElement.outerHTML;
+  w.document.open();
+  w.document.write(doc);
+  w.document.close();
+  w.addEventListener('load', function() {
+    setTimeout(function() { w.print(); }, 500);
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -978,22 +986,5 @@ buildAdjPool();
   .vision-block,.tp-block,.scenarios-block,.variants-block,.impl-block { break-inside:avoid; }
   .pillars-grid { grid-template-columns:repeat(3,1fr); }
 </style>
-  <script>
-function notifyHeight() {
-  window.parent.postMessage({ type: 'resize', height: document.body.scrollHeight }, '*');
-}
-setInterval(notifyHeight, 500);
-</script>
-```
-
----
-
-## Done. The flow is:
-```
-Webflow page
-  → iframe → github.io/cx-vision-creator (your HTML, no size limit)
-                → Cloudflare Worker (cx-vision.renascence.workers.dev)
-                    → Anthropic API
-                    → Google Sheets (leads)
 </body>
 </html>
