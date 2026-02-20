@@ -127,6 +127,7 @@
   .option-card:hover { border-color:rgba(232,0,111,0.35); box-shadow:0 4px 14px rgba(232,0,111,0.08); transform:translateY(-1px); }
   .option-card.selected { border-color:var(--magenta); background:rgba(232,0,111,0.04); box-shadow:0 4px 14px rgba(232,0,111,0.12); }
   .option-card.selected .option-label { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .option-card > * { pointer-events:none; }
   .option-icon { font-size:22px; margin-bottom:2px; }
   .option-label { font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-0.01em; }
   .option-desc { font-size:12px; color:var(--ink-muted); line-height:1.5; font-weight:300; }
@@ -618,8 +619,10 @@ function toggleAdj(el, a) {
 // SELECTION
 // ─────────────────────────────────────────────────────────────────────────────
 function pick(el, key, val) {
-  el.closest('.option-grid').querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
+  const card = el.closest('.option-card') || el;
+  const grid = card.closest('.option-grid') || card.parentElement;
+  grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
   S[key] = val;
 }
 
