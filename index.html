@@ -632,14 +632,13 @@ function pickTone(el, val) {
 }
 
 // Event delegation - handles all card/tab clicks robustly
-document.addEventListener('click', function(e) {
+function handleCardInteraction(e) {
   const card = e.target.closest('[data-pick-key]');
   if (card) {
     const grid = card.closest('.option-grid') || card.parentElement;
     grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     S[card.dataset.pickKey] = card.dataset.pickVal;
-    console.log('PICKED', card.dataset.pickKey, card.dataset.pickVal, 'selected:', card.classList.contains('selected'));
     return;
   }
   const tone = e.target.closest('[data-tone]');
@@ -657,7 +656,10 @@ document.addEventListener('click', function(e) {
     buildAdjPool();
     return;
   }
-});
+}
+document.addEventListener('click', handleCardInteraction);
+document.addEventListener('touchend', handleCardInteraction);
+document.addEventListener('pointerup', handleCardInteraction);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // NAVIGATION
