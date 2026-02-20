@@ -125,8 +125,8 @@
     box-shadow:0 1px 3px rgba(0,0,0,0.04); user-select:none;
   }
   .option-card:hover { border-color:rgba(232,0,111,0.35); box-shadow:0 4px 14px rgba(232,0,111,0.08); transform:translateY(-1px); }
-  .option-card.selected { border-color:var(--magenta); background:rgba(232,0,111,0.04); box-shadow:0 4px 14px rgba(232,0,111,0.12); }
-  .option-card.selected .option-label { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .option-card.selected { border-color:#E8006F !important; background:rgba(232,0,111,0.04) !important; box-shadow:0 4px 14px rgba(232,0,111,0.12) !important; }
+  .option-card.selected .option-label { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:#E8006F !important; }
   .option-card > * { pointer-events:none; }
   .option-icon { font-size:22px; margin-bottom:2px; }
   .option-label { font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-0.01em; }
@@ -640,6 +640,7 @@ document.addEventListener('click', function(e) {
     grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     S[card.dataset.pickKey] = card.dataset.pickVal;
+    console.log('PICKED', card.dataset.pickKey, card.dataset.pickVal, 'selected:', card.classList.contains('selected'));
     return;
   }
   const tone = e.target.closest('[data-tone]');
