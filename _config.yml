@@ -1,8 +1,0 @@
-# GitHub Pages config
-include:
-  - index.html
-exclude:
-  - README.md
-  - worker.js
-  - google-apps-script.js
-  - SETUP.md
