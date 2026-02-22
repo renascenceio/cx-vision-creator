@@ -812,7 +812,7 @@ Rules: wrap pillar words in **markers** · all descriptions must be industry-spe
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || 'API error');
+      throw new Error(data.error || data.message || 'API error');
     }
 
     const rawText = data.data.content.map(b => b.text || '').join('');
@@ -821,7 +821,7 @@ Rules: wrap pillar words in **markers** · all descriptions must be industry-spe
     renderOutput(vision);
   } catch (err) {
     hideGenOverlay();
-    alert(`Could not generate vision: ${err.message}\n\nIf this persists, the Cloudflare Worker URL may need updating.`);
+    alert(`Could not generate vision: ${err.message}`);
   }
 }
 
